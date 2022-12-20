@@ -66,3 +66,37 @@ function miniMaxSum(arr) {
    console.log(minSum + " " + maxSum);
 }
 ```
+
+<br>
+<br>
+
+## **Time Conversion**
+<br>
+
+### **Explanation**
+**I created a varible for am pm I used a method call charAt() and set the index to 8 that allows me to manipulate 'a' and 'p' in ampm part of the string for example 12:00:00pm the p is at index 8 and that is what I want to convert when needed. Next I created another variable to store the hours that will be converted. I have three cases I used an if statment alone with a method call substring() to bring it all together. The substring allowed me to manipulate the case that need to be changed. after I workout of the statement I return military hour plus the substring to get proper time conversion.**
+
+```
+function timeConversion(s) {
+    let amPm = s.charAt(8);
+    let militaryHour = "";
+    
+    if (amPm == "A"){
+        if (s.substring(0,2) == "12"){
+            militaryHour = "00";
+        } 
+        else {
+            militaryHour = s.substring(0,2);
+        }
+    } 
+    else {
+        if (s.substring(0,2) == "12"){
+            militaryHour = s.substring(0,2);
+        }
+        else {
+            militaryHour = parseInt(s.substring(0,2), 10) + 12;
+        }
+    }
+    return  militaryHour + s.substring(2,8)
+}
+```
